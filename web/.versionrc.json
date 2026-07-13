@@ -1,3 +1,4 @@
 {
-  "tag-prefix": "web-v"
+  "tag-prefix": "web-v",
+  "path": "."
 }
