@@ -9,5 +9,11 @@
     "buildNumber": {
       "enabled": true
     }
-  }
+  },
+  "release": {
+    "tagName": "backend-v{version}"
+  },
+  "pathFilters": [
+    "."
+  ]
 }
