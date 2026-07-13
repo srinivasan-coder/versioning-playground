@@ -19,3 +19,25 @@
 .page li {
   margin-bottom: 0.5rem;
 }
+
+.page h2 {
+  font-size: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.page th,
+.page td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.page .api-error {
+  color: #b00020;
+}

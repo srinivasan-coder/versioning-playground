@@ -5,4 +5,33 @@
     <li>Backend: ASP.NET Core, versioned with Nerdbank.GitVersioning</li>
     <li>Web: Angular, versioned with Conventional Commits + standard-version</li>
   </ul>
+
+  <h2>Weather forecast from the backend API</h2>
+
+  @if (error()) {
+    <p class="api-error">{{ error() }}</p>
+  } @else if (forecasts().length === 0) {
+    <p>Loading...</p>
+  } @else {
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Temp. (C)</th>
+          <th>Temp. (F)</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (forecast of forecasts(); track forecast.date) {
+          <tr>
+            <td>{{ forecast.date }}</td>
+            <td>{{ forecast.temperatureC }}</td>
+            <td>{{ forecast.temperatureF }}</td>
+            <td>{{ forecast.summary }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
 </main>
