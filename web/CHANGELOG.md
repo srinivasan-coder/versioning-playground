@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/srinivasan-coder/versioning-playground/compare/web-v0.0.1...web-v0.0.2) (2026-07-13)
+
+
+### Features
+
+* implement CORS policy for Angular development and enhance API error handling ([d14ecc7](https://github.com/srinivasan-coder/versioning-playground/commit/d14ecc70f2e3bdb864700c472a74f45b448a66e9))
+* replace default Angular scaffold with a basic static page ([6321546](https://github.com/srinivasan-coder/versioning-playground/commit/6321546e2afb14df1b7362ef975f1ba12998b777))
+
 ### 0.0.1 (2026-07-13)
 
 
