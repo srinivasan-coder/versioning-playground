@@ -24,21 +24,37 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors(AngularDevClient);
 
-var summaries = new[]
+var summaryBands = new (int MaxC, string Summary)[]
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    (0, "Freezing"),
+    (5, "Bracing"),
+    (10, "Chilly"),
+    (15, "Cool"),
+    (20, "Mild"),
+    (25, "Warm"),
+    (30, "Balmy"),
+    (35, "Hot"),
+    (40, "Sweltering"),
+    (int.MaxValue, "Scorching")
 };
+
+static string SummaryFor((int MaxC, string Summary)[] bands, int temperatureC) =>
+    bands.First(band => temperatureC <= band.MaxC).Summary;
 
 app.MapGet("/weatherforecast", () =>
 {
+    var currentTemperatureC = Random.Shared.Next(10, 26);
     var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
+    {
+        currentTemperatureC += Random.Shared.Next(-3, 4);
+        return new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
+            currentTemperatureC,
+            SummaryFor(summaryBands, currentTemperatureC)
+        );
+    })
+    .ToArray();
     return forecast;
 })
 .WithName("GetWeatherForecast");
