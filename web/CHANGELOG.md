@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/srinivasan-coder/versioning-playground/compare/web-v0.0.2...web-v0.0.3) (2026-07-14)
+
+
+### Features
+
+* enhance UI and improve weather forecast functionality with new styles and demo data handling ([c6c1840](https://github.com/srinivasan-coder/versioning-playground/commit/c6c184022cd1a2935e6a65a6996576cf5808e6b7))
+
 ### [0.0.2](https://github.com/srinivasan-coder/versioning-playground/compare/web-v0.0.1...web-v0.0.2) (2026-07-13)
 
 
