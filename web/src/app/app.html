@@ -1,37 +1,35 @@
 <main class="page">
-  <h1>versioning-playground</h1>
-  <p>This is the web frontend, versioned independently from the backend using standard-version.</p>
-  <ul>
-    <li>Backend: ASP.NET Core, versioned with Nerdbank.GitVersioning</li>
-    <li>Web: Angular, versioned with Conventional Commits + standard-version</li>
-  </ul>
+  <header class="page-header">
+    <h1>versioning-playground</h1>
+    <p>Backend: ASP.NET Core + Nerdbank.GitVersioning &middot; Web: Angular + Conventional Commits</p>
+  </header>
 
-  <h2>Weather forecast from the backend API</h2>
+  <section class="forecast">
+    <div class="forecast-head">
+      <h2>5-Day Forecast</h2>
+      @if (usingDemoData()) {
+        <span class="demo-badge">Demo data &mdash; API unreachable</span>
+      }
+    </div>
 
-  @if (error()) {
-    <p class="api-error">{{ error() }}</p>
-  } @else if (forecasts().length === 0) {
-    <p>Loading...</p>
-  } @else {
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Temp. (C)</th>
-          <th>Temp. (F)</th>
-          <th>Summary</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (forecast of forecasts(); track forecast.date) {
-          <tr>
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-          </tr>
+    @if (loading()) {
+      <div class="forecast-grid">
+        @for (i of [1, 2, 3, 4, 5]; track i) {
+          <div class="forecast-card skeleton"></div>
         }
-      </tbody>
-    </table>
-  }
+      </div>
+    } @else {
+      <div class="forecast-grid">
+        @for (card of cards(); track card.date) {
+          <div class="forecast-card" [class]="card.tempClass">
+            <div class="card-day">{{ card.dayLabel }}</div>
+            <div class="card-icon">{{ card.icon }}</div>
+            <div class="card-temp">{{ card.temperatureC }}&deg;C</div>
+            <div class="card-temp-f">{{ card.temperatureF }}&deg;F</div>
+            <div class="card-summary">{{ card.summary }}</div>
+          </div>
+        }
+      </div>
+    }
+  </section>
 </main>
